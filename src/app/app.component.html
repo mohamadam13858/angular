@@ -1,18 +1,15 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 align-items-center">
-
-            <h1>{{"server"}} with Id {{ serverId }} is {{getServerStatus()}} </h1>
-
-
-            <button class="btn btn-danger m-3"  >click</button>
-
-
-            <!-- <input type="text" (keypress)="clikFunctionEvent($event)"> -->
-            <input type="text" [(ngModel)]="serverName">
-
-            <h1>{{serverName}}</h1>
-
+    <div class="row justify-content-center align-content-center">
+        <div class="col-12 col-md-6">
+            <label>UserName:</label>
+            <input type="text" class="form-control" (keypress)="clickFunctionEvent($event)" [(ngModel)]="username">
+        </div>
+        <div class="col-12 col-md-6 mt-3">
+            <h1>username : {{username}}</h1>
+        </div>
+        <div class="col-12 col-md-4">
+            
+            <button class="btn btn-success" (click)="click()" [disabled]="username==''">reset</button>
         </div>
 
     </div>

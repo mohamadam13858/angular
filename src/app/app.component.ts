@@ -20,7 +20,7 @@ export class AppComponent {
 
   imageurl: string = '';
 
-  serverName: string = 'mohamad'
+  username: string = ''
 
 
   constructor() {
@@ -29,15 +29,19 @@ export class AppComponent {
     }, 8000)
   }
 
-  getServerStatus() {
-    return this.serverStatus;
+  click() {
+    return this.username = '';
   }
 
 
-  clikFunctionEvent(event: KeyboardEvent) {
+  clickFunctionEvent(event: KeyboardEvent) {
     let value = (event.target as HTMLInputElement).value;
 
-    console.log(value);
+    if (value.length > 0) {
+      this.isAllowButton = false
+    } else {
+      this.isAllowButton = true
+    }
 
 
   }
