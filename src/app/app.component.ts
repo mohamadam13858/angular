@@ -14,6 +14,8 @@ export class AppComponent {
 
   isAllowButton = true;
 
+  imageurl: string = ''
+
 
   constructor() {
     setTimeout(() => {
@@ -26,8 +28,11 @@ export class AppComponent {
   }
 
 
-  clikFunctionEvent(){
-    console.log('click test !');
+  clikFunctionEvent(event : KeyboardEvent){
+    let value = (event.target as HTMLInputElement).value;
+
+    console.log(value);
+    
     
   }
 

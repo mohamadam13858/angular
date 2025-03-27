@@ -5,7 +5,10 @@
             <h1>{{"server"}} with Id {{ serverId }} is {{getServerStatus()}} </h1>
 
 
-            <button class="btn btn-danger m-3" (click)="clikFunctionEvent()" >click</button>
+            <button class="btn btn-danger m-3"  >click</button>
+
+
+            <input type="text" (keypress)="clikFunctionEvent($event)">
         </div>
 
     </div>
