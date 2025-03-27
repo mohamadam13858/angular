@@ -1,14 +1,11 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 align-items-center">
 
             <h1>{{"server"}} with Id {{ serverId }} is {{getServerStatus()}} </h1>
 
 
-            <img [src]="imgUrl" alt="">
-
-
-            <button class="btn btn-danger m-3" [disabled]="isAllowButton">click</button>
+            <button class="btn btn-danger m-3" (click)="clikFunctionEvent()" >click</button>
         </div>
 
     </div>
