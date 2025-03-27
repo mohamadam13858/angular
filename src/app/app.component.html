@@ -8,7 +8,11 @@
             <button class="btn btn-danger m-3"  >click</button>
 
 
-            <input type="text" (keypress)="clikFunctionEvent($event)">
+            <!-- <input type="text" (keypress)="clikFunctionEvent($event)"> -->
+            <input type="text" [(ngModel)]="serverName">
+
+            <h1>{{serverName}}</h1>
+
         </div>
 
     </div>

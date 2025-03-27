@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
+  imports: [
+    FormsModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -14,7 +18,9 @@ export class AppComponent {
 
   isAllowButton = true;
 
-  imageurl: string = ''
+  imageurl: string = '';
+
+  serverName: string = 'mohamad'
 
 
   constructor() {
@@ -28,12 +34,12 @@ export class AppComponent {
   }
 
 
-  clikFunctionEvent(event : KeyboardEvent){
+  clikFunctionEvent(event: KeyboardEvent) {
     let value = (event.target as HTMLInputElement).value;
 
     console.log(value);
-    
-    
+
+
   }
 
 
