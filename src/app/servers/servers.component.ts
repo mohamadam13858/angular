@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrl: './servers.component.css',
-  standalone: true
 })
 export class ServersComponent {
 

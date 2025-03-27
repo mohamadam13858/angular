@@ -4,9 +4,15 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  standalone: true
 })
 
 export class AppComponent {
+
+  serverId: number = 1;
+  serverStatus: string = "Offline";
+
+  getServerStatus() {
+    return this.serverStatus;
+  }
 
 }
