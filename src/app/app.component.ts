@@ -24,7 +24,9 @@ export class AppComponent {
 
   imageurl: string = '';
 
-  username: string = ''
+  username: string = 'mohamad'
+
+  servers: string[] = []
 
 
   constructor() {
@@ -36,12 +38,15 @@ export class AppComponent {
   }
 
 
+  createServer(event: any) {
+    this.servers.push(this.username)
+  }
   clickFunctionEvent(event: any) {
 
     this.isShowServers = true
 
   }
-  getcolor(){
+  getcolor() {
     return this.serverStatus === 'Online' ? 'green' : 'red'
   }
 
