@@ -14,13 +14,13 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
 
-  isShowServers: boolean= false;
+  isShowServers: boolean = false;
 
   serverId: number = 1;
 
   serverStatus: string = "Offline";
 
-  isAllowButton = true;
+  isAllowButton: boolean = true;
 
   imageurl: string = '';
 
@@ -28,9 +28,7 @@ export class AppComponent {
 
 
   constructor() {
-    setTimeout(() => {
-      this.isAllowButton = false
-    }, 8000)
+    this.serverStatus = Math.random() > 0.5 ? 'Online' : 'Offline'
   }
 
   click() {
@@ -39,9 +37,12 @@ export class AppComponent {
 
 
   clickFunctionEvent(event: any) {
-   
+
     this.isShowServers = true
 
+  }
+  getcolor(){
+    return this.serverStatus === 'Online' ? 'green' : 'red'
   }
 
 

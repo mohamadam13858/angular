@@ -10,6 +10,8 @@
         <div class="col-12 col-md-4">
             <button class="btn btn-success m-2" (click)="click()" [disabled]="username==''">reset</button>
             <button class="btn btn-success m-2" (click)="clickFunctionEvent($event)">reset</button>
+            <h1 [ngStyle]="{backgroundColor:getcolor()}">{{serverStatus}}</h1>
+            <h1 [ngStyle]="{backgroundColor:getcolor()}">{{serverStatus}}</h1>
         </div>
 
     </div>
