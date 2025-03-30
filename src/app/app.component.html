@@ -1,18 +1,13 @@
 <div class="container">
     <div class="row justify-content-center align-content-center">
         <div class="col-12 col-md-6">
-            <label>UserName:</label>
-            <input type="text" class="form-control" [(ngModel)]="username">
             <button class="btn btn-success m-2" (click)="clickFunctionEvent($event)">Display Details</button>
         </div>
         <div class="col-12 col-md-6 mt-3">
             <p *ngIf="isAllowButton">password:</p>
         </div>
         <div class="col-12 col-md-4">
-            <button class="btn btn-success m-2" (click)="createServer($event)">addServer</button>
-            <h1 [ngStyle]="{backgroundColor:getcolor()}">{{serverStatus}}</h1>
-            <h1 [ngClass]="{online: serverStatus === 'Online'}">{{serverStatus}}</h1>
-            <p [ngClass]="getclass()" *ngFor="let server of servers" class="border text-primary">{{servers}}</p>
+            <div [ngClass]="{'mm': server > 5 ? 'mm' : ''}" class="text-center" *ngFor="let server of servers">{{server}}</div>
         </div>
     </div>
 </div>

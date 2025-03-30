@@ -14,47 +14,28 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
 
-  isShowServers: boolean = false;
-
-  serverId: number = 1;
-
-  serverStatus: string = "Offline";
 
   isAllowButton: boolean = false;
 
-  A: string = 'ali';
+  A: number = 0;
 
-  username: string = 'mohamad'
-
-  servers: string[] = []
+  servers: number[] = []
 
 
   constructor() {
-    this.serverStatus = Math.random() > 0.5 ? 'Online' : 'Offline'
   }
 
-  click() {
-    return this.username = '';
-  }
-
-
-  createServer(event: any) {
-    this.servers.push()
-  }
   clickFunctionEvent(event: any) {
 
-    return this.isAllowButton ? this.isAllowButton = false : this.isAllowButton = true, this.servers.push(this.A)
-
-
-
+    return this.isAllowButton = !this.isAllowButton, this.servers.push(this.servers.length+1)
   }
-  getcolor() {
-    return this.serverStatus === 'Online' ? 'green' : 'red'
-  }
-  getclass(){
+
+
+
+  getclass() {
     if (this.servers.length > 5) {
       return 'mm'
-    }else{
+    } else {
       return ''
     }
   }
