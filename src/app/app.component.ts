@@ -19,7 +19,7 @@ export class AppComponent {
 
   A: number = 0;
 
-  servers: number[] = []
+  servers: any[] = []
 
 
   constructor() {
@@ -27,7 +27,7 @@ export class AppComponent {
 
   clickFunctionEvent(event: any) {
 
-    return this.isAllowButton = !this.isAllowButton, this.servers.push(this.servers.length+1)
+    return this.isAllowButton = !this.isAllowButton, this.servers.push(new Date().toDateString())
   }
 
 

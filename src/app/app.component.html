@@ -7,7 +7,7 @@
             <p *ngIf="isAllowButton">password:</p>
         </div>
         <div class="col-12 col-md-4">
-            <div [ngClass]="{'mm': server > 5 ? 'mm' : ''}" class="text-center" *ngFor="let server of servers">{{server}}</div>
+            <div [ngClass]="{'mm': i >= 5 ? 'mm' : ''}" class="text-center" *ngFor="let server of servers;let i = index">{{server}}</div>
         </div>
     </div>
 </div>
