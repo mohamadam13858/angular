@@ -3,16 +3,16 @@
         <div class="col-12 col-md-6">
             <label>UserName:</label>
             <input type="text" class="form-control" [(ngModel)]="username">
+            <button class="btn btn-success m-2" (click)="clickFunctionEvent($event)">Display Details</button>
         </div>
         <div class="col-12 col-md-6 mt-3">
-            <p> username : {{username}}</p>
+            <p *ngIf="isAllowButton">password:</p>
         </div>
         <div class="col-12 col-md-4">
-            <button class="btn btn-success m-2" (click)="click()" [disabled]="username==''">reset</button>
             <button class="btn btn-success m-2" (click)="createServer($event)">addServer</button>
             <h1 [ngStyle]="{backgroundColor:getcolor()}">{{serverStatus}}</h1>
             <h1 [ngClass]="{online: serverStatus === 'Online'}">{{serverStatus}}</h1>
-            <p *ngFor="let server of servers" class="border text-primary">{{servers}}</p>
+            <p [ngClass]="getclass()" *ngFor="let server of servers" class="border text-primary">{{servers}}</p>
         </div>
     </div>
 </div>

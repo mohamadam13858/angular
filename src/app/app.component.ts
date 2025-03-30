@@ -20,9 +20,9 @@ export class AppComponent {
 
   serverStatus: string = "Offline";
 
-  isAllowButton: boolean = true;
+  isAllowButton: boolean = false;
 
-  imageurl: string = '';
+  A: string = 'ali';
 
   username: string = 'mohamad'
 
@@ -39,15 +39,24 @@ export class AppComponent {
 
 
   createServer(event: any) {
-    this.servers.push(this.username)
+    this.servers.push()
   }
   clickFunctionEvent(event: any) {
 
-    this.isShowServers = true
+    return this.isAllowButton ? this.isAllowButton = false : this.isAllowButton = true, this.servers.push(this.A)
+
+
 
   }
   getcolor() {
     return this.serverStatus === 'Online' ? 'green' : 'red'
+  }
+  getclass(){
+    if (this.servers.length > 5) {
+      return 'mm'
+    }else{
+      return ''
+    }
   }
 
 
