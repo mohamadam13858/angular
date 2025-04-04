@@ -14,7 +14,4 @@ export class BasicHighlihgtDirective implements OnInit {
     ngOnInit() {
         this.element.nativeElement.style.backgroundColor = 'green'
     }
-
-
-
 }
