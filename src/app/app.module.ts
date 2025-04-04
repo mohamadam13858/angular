@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BasicHighlihgtDirective } from './directives/basic-highlight.directive';
 import { RenderbaseHighlightDirective } from './directives/renderbase-highlight.directive';
 import { HideAfterDirective } from './directives/hide-after.directive';
+import { FirstLogDirective } from './directives/first-log.directive';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HideAfterDirective } from './directives/hide-after.directive';
     BasicHighlihgtDirective,
     RenderbaseHighlightDirective,
     HideAfterDirective,
+    FirstLogDirective,
   ],
   imports: [
     BrowserModule,
