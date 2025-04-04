@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  number:any = 4
+  number:any = null
 }
