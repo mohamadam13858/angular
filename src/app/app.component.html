@@ -1,26 +1,15 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
-            <h1 appRenderbaseHighlight DefaultColor="yellow" hoverColor="blue">Test</h1>
-            <br><br>
-            <ul class="list-group">
-                <div *ngIf="onlyOdd">
-                    <li class="list-group-item" *ngFor="let odd of oddNumbers" [ngClass]="{odd:odd % 2 !== 0}"
-                        [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'blue' : 'yellow'}"
-                        >
-                        {{odd}}
-                    </li>
-                </div>
-                <div *ngIf="!onlyOdd">
-                    <li class="list-group-item" *ngFor="let even of evenNumbers" [ngClass]="{even: even % 2 === 0}"
-                        [ngStyle]="{backgroundColor: even % 2 === 0 ? 'yellow' : 'blue'}">
-                        {{even}}
-                    </li>
-                </div>
-            </ul>
-            <p appBasicHighlight>style me with Basic directive</p>
-            <p appRenderbaseHighlight DefaultColor="green" hoverColor="orange">style me with Render Basic directive</p>
-        </div>
-    </div>
-</div>
+<main>
+  <h1>Structural Directives</h1>
+  <section *hideAfter class="banner primary">
+    <h2>Temporary content</h2>
+    <p>This layout should disappear in 5 seconds</p>
+  </section>
+
+
+  <ng-template hideAfter>
+    <section class="banner primary">
+      <h2>Temporary content</h2>
+      <p>This layout should disappear in 5 seconds</p>
+    </section>
+  </ng-template>
+</main>

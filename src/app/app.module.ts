@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicHighlihgtDirective } from './directives/basic-highlight.directive';
 import { RenderbaseHighlightDirective } from './directives/renderbase-highlight.directive';
+import { HideAfterDirective } from './directives/hide-after.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicHighlihgtDirective,
     RenderbaseHighlightDirective,
+    HideAfterDirective,
   ],
   imports: [
     BrowserModule,
