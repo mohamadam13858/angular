@@ -2,14 +2,17 @@
   <h1>Structural Directives</h1>
 
 
-  <section *firstlog="'mohamad' after 'ali' atend 'milad'" class="banner primary">
+  <section class="banner primary">
     <h2>Temporary content</h2>
     <p>This layout should disappear in 5 seconds</p>
   </section>
 
 
-
-
+  <div class="text-center" [ngSwitch]="number">
+    <p *ngSwitchCase="4">value is 4</p>
+    <p *ngSwitchCase="40">value is 40</p>
+    <p *ngSwitchCase="400">value is 400</p>
+  </div>
 
 
 </main>
