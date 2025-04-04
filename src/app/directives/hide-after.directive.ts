@@ -8,7 +8,7 @@ export class HideAfterDirective implements OnInit {
       
 
 
-  @Input() delay = 5000
+  @Input('hideAfter') delay = 0
 
 
 
