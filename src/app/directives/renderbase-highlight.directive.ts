@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appRenderbaseHighlight]',
@@ -6,8 +6,11 @@ import { Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2 } f
 })
 export class RenderbaseHighlightDirective implements OnInit {
 
-   
-  @HostBinding('style.backgroundColor') backColor : string = 'green';
+  @Input() DefaultColor: string = 'green';
+  @Input() hoverColor: string = 'red'
+
+
+  @HostBinding('style.backgroundColor') backColor: string = this.DefaultColor;
 
 
 
@@ -15,16 +18,17 @@ export class RenderbaseHighlightDirective implements OnInit {
 
 
   ngOnInit() {
+    this.backColor = this.DefaultColor
     // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'green')
   }
 
   @HostListener('mouseenter') changeColor() {
     // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'red')
-   this.backColor = 'red'
+    this.backColor = this.hoverColor
   }
   @HostListener('mouseleave') defaultColor() {
     // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'green')
-    this.backColor = 'green'
+    this.backColor = this.DefaultColor
   }
 
 }
