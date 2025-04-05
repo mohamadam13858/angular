@@ -11,6 +11,7 @@ import { LogComponent } from './log/log.component';
 import { UserService } from './user.service';
 import { LoggerService } from './logger.service';
 import { MohamadComponent } from './mohamad/mohamad.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MohamadComponent } from './mohamad/mohamad.component';
     FirstLogDirective,
     LogComponent,
     MohamadComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
