@@ -10,6 +10,7 @@ import { FirstLogDirective } from './directives/first-log.directive';
 import { LogComponent } from './log/log.component';
 import { UserService } from './user.service';
 import { LoggerService } from './logger.service';
+import { MohamadComponent } from './mohamad/mohamad.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoggerService } from './logger.service';
     HideAfterDirective,
     FirstLogDirective,
     LogComponent,
+    MohamadComponent,
   ],
   imports: [
     BrowserModule,

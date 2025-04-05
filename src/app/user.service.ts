@@ -8,14 +8,6 @@ export class UserService {
 
   constructor(private logger: LoggerService) { }
 
-  // async getJsonFromApi() {
-
-  //   let result = await (
-  //     await fetch('https://jsonplaceholder.typicode.com/todos/1')
-  //   ).json();
-
-  //   console.log(result);
-  // }
 
   names: string[] = ['mohamad hasemi ']
 
