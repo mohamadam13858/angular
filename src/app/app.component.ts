@@ -5,26 +5,30 @@ import { UserService } from './user.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [
+    UserService
+  ]
 })
 export class AppComponent implements OnInit {
 
 
-  constructor(private userService : UserService){
-      
+  constructor(private userservice : UserService) {
+
   }
 
 
   ngOnInit(): void {
-    
+
   }
 
 
-  getData(){
-    this.userService.getJsonFromApi();
+  getData() {
+    this.userservice.getJsonFromApi();
   }
 
 
-  
-  
+
+
+
 }

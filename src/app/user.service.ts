@@ -14,9 +14,5 @@ export class UserService {
     ).json();
 
     console.log(result);
-
-
-
-
   }
 }
