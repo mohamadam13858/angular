@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,24 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+
+  constructor(private userService : UserService){
+      
+  }
+
+
+  ngOnInit(): void {
+    
+  }
+
+
+  getData(){
+    this.userService.getJsonFromApi();
+  }
+
+
   
-  number:any = null
+  
 }
