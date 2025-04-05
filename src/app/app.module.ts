@@ -9,6 +9,7 @@ import { HideAfterDirective } from './directives/hide-after.directive';
 import { FirstLogDirective } from './directives/first-log.directive';
 import { LogComponent } from './log/log.component';
 import { UserService } from './user.service';
+import { LoggerService } from './logger.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { UserService } from './user.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

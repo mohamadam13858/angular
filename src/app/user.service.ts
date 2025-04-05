@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from './logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private logger: LoggerService) { }
 
   // async getJsonFromApi() {
 
@@ -22,11 +23,13 @@ export class UserService {
 
   getData() {
     console.log(this.names);
+    this.logger.logMessage()
 
   }
 
   setData(name: string) {
     this.names.push(name)
+    this.logger.logMessage()
   }
 
 
