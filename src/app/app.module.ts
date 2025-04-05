@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 import { LoggerService } from './logger.service';
 import { MohamadComponent } from './mohamad/mohamad.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MohamadIdComponent } from './mohamad-id/mohamad-id.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LogComponent,
     MohamadComponent,
     PageNotFoundComponent,
+    MohamadIdComponent,
   ],
   imports: [
     BrowserModule,
