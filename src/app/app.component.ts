@@ -6,14 +6,11 @@ import { UserService } from './user.service';
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css',
-  providers: [
-    UserService
-  ]
 })
 export class AppComponent implements OnInit {
 
 
-  constructor(private userservice : UserService) {
+  constructor(private userservice: UserService) {
 
   }
 
@@ -22,12 +19,13 @@ export class AppComponent implements OnInit {
 
   }
 
-
-  getData() {
-    this.userservice.getJsonFromApi();
+  getNames() {
+    this.userservice.getData()
   }
 
-
+  addName(name:string){
+   this.userservice.setData(name)
+  }
 
 
 

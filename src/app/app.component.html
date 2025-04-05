@@ -1,5 +1,10 @@
 <h1>mohamad</h1>
 
+<input type="text" placeholder="Enter Name" #name>
+
+<button (click)="addName(name.value)">add name</button>
+
+<button (click)="getNames()"> click me </button>
 
 
-<button (click)="getData()">click to fetch</button>
+<app-log></app-log>
