@@ -29,16 +29,17 @@ export class MohamadComponent implements OnInit {
     { id: 4, name: 'Rust' },
     { id: 5, name: 'bootstrap' },
   ]
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private Activeroute: ActivatedRoute) {
 
   }
 
   onSelect(id: number) {
-    this.router.navigate(['/mohamad', id])
+    // this.router.navigate(['/mohamad', id])
+    this.router.navigate([id] , {relativeTo:this.Activeroute})
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
+    this.Activeroute.paramMap.subscribe((params: ParamMap) => {
       let id = parseInt(params.get('id')!)
       this.SelectedId = id
     })

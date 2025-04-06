@@ -10,7 +10,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 export class MohamadIdComponent implements OnInit {
 
 
-  constructor(private router: ActivatedRoute, private route: Router) {
+  constructor(private Activerouter: ActivatedRoute, private route: Router) {
 
   }
 
@@ -19,7 +19,7 @@ export class MohamadIdComponent implements OnInit {
   ngOnInit(): void {
     // let id = parseInt(this.router.snapshot.paramMap.get('id')!)
     // this.MohamadId = id
-    this.router.paramMap.subscribe((params: ParamMap) => {
+    this.Activerouter.paramMap.subscribe((params: ParamMap) => {
       let id = parseInt(params.get('id')!)
       this.MohamadId = id
     })
@@ -28,18 +28,23 @@ export class MohamadIdComponent implements OnInit {
 
   goNext() {
     let nextId = this.MohamadId + 1
-    this.route.navigate(['/mohamad', nextId])
+    // this.route.navigate(['/mohamad', nextId])
+    this.route.navigate(['./', { id: nextId }], { relativeTo: this.Activerouter })
+
 
   }
 
   goPrevious() {
     let previousId = this.MohamadId - 1
-    this.route.navigate(['/mohamad', previousId])
+    // this.route.navigate(['/mohamad', previousId])
+    this.route.navigate(['./', { id: previousId }], { relativeTo: this.Activerouter })
+    
 
   }
 
   goBack() {
-    this.route.navigate(['/mohamad', {id:this.MohamadId}])
+    // this.route.navigate(['/mohamad', {id:this.MohamadId}])
+    this.route.navigate(['../', { id: this.MohamadId }], { relativeTo: this.Activerouter })
   }
 
 
