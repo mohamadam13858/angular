@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +16,25 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.myObservable.subscribe(
-      {
-        complete: () => { alert('mmmmmm') },
-        next: (val) => { console.log(val) },
-        error: (err) => { alert(err.message) }
+    // this.myObservable.subscribe(
+    //   {
+    //     complete: () => { alert('mmmmmm') },
+    //     next: (val) => { console.log(val) },
+    //     error: (err) => { alert(err.message) }
+    //   }
+    // )
+
+
+    this.fromObservable.subscribe({
+      next:(val)=>{
+        console.log(val);
+        
+      }, 
+      complete: ()=>{
+        alert('ffffff')
       }
-    )
+
+    })
 
   }
 
@@ -56,5 +68,13 @@ export class AppComponent implements OnInit {
 
   })
 
+
+  array1:any = [2,4,6,8]
+  array2:any = [3,5,7,9]
+
+
+  ofObservable = of(this.array1 , this.array2 , 'mohamad')
+
+  fromObservable = from(this.array1)
 
 }
