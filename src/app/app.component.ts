@@ -19,6 +19,12 @@ export class AppComponent implements OnInit {
     this.myObservable.subscribe((val) => {
       console.log(val);
 
+    }, (err)=>{
+
+      alert(err.message)
+
+    } , ()=>{
+      alert('تموم شد')
     })
   }
 
@@ -44,6 +50,9 @@ export class AppComponent implements OnInit {
     }, 6000);
     setTimeout(() => {
       subscribe.next('6');
+    }, 7000);
+    setTimeout(() => {
+      subscribe.complete();
     }, 7000);
 
 
