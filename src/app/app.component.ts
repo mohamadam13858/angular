@@ -16,16 +16,14 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.myObservable.subscribe((val) => {
-      console.log(val);
+    this.myObservable.subscribe(
+      {
+        complete: () => { alert('mmmmmm') },
+        next: (val) => { console.log(val) },
+        error: (err) => { alert(err.message) }
+      }
+    )
 
-    }, (err)=>{
-
-      alert(err.message)
-
-    } , ()=>{
-      alert('تموم شد')
-    })
   }
 
 
