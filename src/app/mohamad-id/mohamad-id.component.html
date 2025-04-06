@@ -2,10 +2,19 @@
 
 
 <div class="d-flex justify-content-center">
+    <a class="btn btn-light m-2" (click)="goDescription()">Description</a>
+    <a class="btn btn-light m-2" (click)="goTutorial()">Tutorial</a>
+</div>
+<br>
+<div class="d-flex justify-content-center">
     <a class="btn btn-success m-2" (click)="goPrevious()">Previous</a>
     <a class="btn btn-warning m-2" (click)="goNext()">next</a>
     <a class="btn btn-danger m-2" (click)="goBack()">back</a>
 </div>
 
 
-<router-outlet></router-outlet>
+<div class="d-flex justify-content-center">
+    <router-outlet></router-outlet>
+</div>
+
+

@@ -47,6 +47,15 @@ export class MohamadIdComponent implements OnInit {
     this.route.navigate(['../', { id: this.MohamadId }], { relativeTo: this.Activerouter })
   }
 
+  goDescription(){
+     this.route.navigate(['tutorial'] , {relativeTo:this.Activerouter})
+  }
+
+
+  goTutorial(){
+       this.route.navigate(['description'] , {relativeTo: this.Activerouter})
+  }
+
 
 
 }

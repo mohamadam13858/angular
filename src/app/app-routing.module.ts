@@ -24,10 +24,6 @@ const routes: Routes = [
   {
     path: 'mohamad',
     component: MohamadComponent,
-    children: [
-      { path: 'description', component: DescriptionComponent },
-      { path: 'tutorial', component: TutorialComponent }
-    ]
   },
 
 
