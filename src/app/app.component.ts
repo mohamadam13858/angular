@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +10,44 @@ import { UserService } from './user.service';
 export class AppComponent implements OnInit {
 
 
-  constructor(private userservice: UserService) {
+  constructor() {
 
   }
 
 
   ngOnInit(): void {
+    this.myObservable.subscribe((val) => {
+      console.log(val);
 
+    })
   }
 
-  getNames() {
-    this.userservice.getData()
-  }
 
-  addName(name:string){
-   this.userservice.setData(name)
-  }
+  myObservable = new Observable((subscribe) => {
 
+    console.log('observable Starts ...');
+
+    setTimeout(() => {
+      subscribe.next('1');
+    }, 2000);
+    setTimeout(() => {
+      subscribe.next('2');
+    }, 3000);
+    setTimeout(() => {
+      subscribe.next('3');
+    }, 4000);
+    setTimeout(() => {
+      subscribe.next('4');
+    }, 5000);
+    setTimeout(() => {
+      subscribe.next('5');
+    }, 6000);
+    setTimeout(() => {
+      subscribe.next('6');
+    }, 7000);
+
+
+  })
 
 
 }
