@@ -27,20 +27,21 @@ export class MohamadIdComponent implements OnInit {
   }
 
   goNext() {
-    if (this.MohamadId === 5) {
-      this.MohamadId = 1
-    } else {
-      let nextId = this.MohamadId + 1
-      this.route.navigate(['/mohamad', nextId])
-    }
+    let nextId = this.MohamadId + 1
+    this.route.navigate(['/mohamad', nextId])
+
   }
 
   goPrevious() {
-    if (this.MohamadId === 1) {
-      this.MohamadId = 5
-    } else {
-      let previousId = this.MohamadId - 1
-      this.route.navigate(['/mohamad', previousId])
-    }
+    let previousId = this.MohamadId - 1
+    this.route.navigate(['/mohamad', previousId])
+
   }
+
+  goBack() {
+    this.route.navigate(['/mohamad', {id:this.MohamadId}])
+  }
+
+
+
 }
