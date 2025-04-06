@@ -13,6 +13,8 @@ import { LoggerService } from './logger.service';
 import { MohamadComponent } from './mohamad/mohamad.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MohamadIdComponent } from './mohamad-id/mohamad-id.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
+import { DescriptionComponent } from './description/description.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MohamadIdComponent } from './mohamad-id/mohamad-id.component';
     MohamadComponent,
     PageNotFoundComponent,
     MohamadIdComponent,
+    TutorialComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,
