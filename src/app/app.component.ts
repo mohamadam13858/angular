@@ -13,13 +13,10 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
 
-  title: string = ''
+
   constructor(private dataService: DataService) {
 
   }
-  counterSub: any;
-
-  counterOvservable = interval(1000);
 
   ngOnInit(): void {
 
@@ -28,20 +25,6 @@ export class AppComponent implements OnInit {
   }
 
 
-
-  unsubscribe() {
-    this.counterSub.unsubscribe()
-  }
-
-
-
-  subscribe() {
-    this.counterSub = this.counterOvservable.subscribe({
-      next: (value) => {
-        console.log(value);
-      }
-    })
-  }
 
 
 

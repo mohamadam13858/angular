@@ -1,12 +1,26 @@
-<app-cmp1></app-cmp1>
-
-<app-cmp2></app-cmp2>
-
-
-
-<div class="container ">
-    <button (click)="unsubscribe()" class="btn btn-danger">unsubscribe</button>
-</div>
-<div class="container ">
-    <button (click)="subscribe()" class="btn btn-danger">subscribe</button>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-12">
+            <form>
+                <div id="user-data">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" ngModel name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" class="form-control" ngModel name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="secret">Secret Questions</label>
+                    <select id="secret" class="form-control" ngModel name="secretquestion">
+                        <option value="pet">Your Favorite Singer?</option>
+                        <option value="teacher">Your Favorite Actor?</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
