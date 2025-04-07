@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, from, map, Observable, of } from 'rxjs';
+import { filter, from, interval, map, Observable, of } from 'rxjs';
 import { DataService } from './data.service';
 
 @Component({
@@ -7,22 +7,45 @@ import { DataService } from './data.service';
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css',
-  providers:[
+  providers: [
     DataService
   ]
 })
 export class AppComponent implements OnInit {
 
-
-  constructor(private dataService : DataService) {
+  title: string = ''
+  constructor(private dataService: DataService) {
 
   }
+  counterSub: any;
 
+  counterOvservable = interval(1000);
 
   ngOnInit(): void {
 
 
+
   }
+
+
+
+  unsubscribe() {
+    this.counterSub.unsubscribe()
+  }
+
+
+
+  subscribe() {
+    this.counterSub = this.counterOvservable.subscribe({
+      next: (value) => {
+        console.log(value);
+      }
+    })
+  }
+
+
+
+
 
 
 
