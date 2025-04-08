@@ -43,7 +43,8 @@ export class AppComponent implements OnInit {
       gender: new FormControl('male')
     })
   }
-
+    
+  
 
   onSubmit() {
     console.log(this.signupForm);
