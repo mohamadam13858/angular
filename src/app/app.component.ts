@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
 
   answer = ''
 
+  genders = [
+    'male',
+    'female'
+  ]
+
   constructor() {
 
   }
