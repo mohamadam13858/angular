@@ -1,27 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { filter, from, interval, map, Observable, of } from 'rxjs';
-import { DataService } from './data.service';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css',
-  providers: [
-    DataService
-  ]
 })
 export class AppComponent implements OnInit {
 
 
-  constructor(private dataService: DataService) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
 
+  }
 
 
+
+  onSubmit(form: NgForm) {
+    console.log(form);
   }
 
 
