@@ -3,6 +3,13 @@ import { NgForm } from '@angular/forms';
 
 
 
+interface IUser {
+  username: string,
+  email: string,
+  QuestionAnswer: string,
+  gender: "male" | "female"
+}
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +17,7 @@ import { NgForm } from '@angular/forms';
   standalone: false,
   styleUrl: './app.component.css',
 })
+
 export class AppComponent implements OnInit {
 
   @ViewChild('F') signeupForm: NgForm | null = null
@@ -26,6 +34,11 @@ export class AppComponent implements OnInit {
     'female'
   ]
 
+  user = {} as IUser;
+
+  isSubmit:boolean = false
+
+
   constructor() {
 
   }
@@ -37,26 +50,30 @@ export class AppComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.signeupForm);
+    this.user!.username = this.signeupForm?.value.UserData.username;
+    this.user!.email = this.signeupForm?.value.UserData.email;
+    this.user!.QuestionAnswer = this.signeupForm?.value.QuestionAnswer;
+    this.user!.gender = this.signeupForm?.value.gender;  
+    this.isSubmit = true  
   }
 
-  setValue(){
+  setValue() {
     this.signeupForm?.setValue({
-      gender:"male" ,
-      select:"pet" ,
-      QuestionAnswer:"rabert deniro" ,
+      gender: "male",
+      select: "pet",
+      QuestionAnswer: "rabert deniro",
       UserData: {
-        username: 'mohamad' , 
-        email:'mohamad@gmail.com'
+        username: 'mohamad',
+        email: 'mohamad@gmail.com'
       }
 
     })
   }
-  
-  patchValue(){
+
+  patchValue() {
     this.signeupForm?.form.patchValue({
       UserData: {
-        username: 'ali' , 
+        username: 'ali',
       }
 
     })
