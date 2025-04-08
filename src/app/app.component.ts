@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('F') signeupProperty: NgForm | null = null
+  @ViewChild('F') signeupForm: NgForm | null = null
 
 
   defaultquestion = "pet"
@@ -37,7 +37,20 @@ export class AppComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.signeupProperty);
+    console.log(this.signeupForm);
+  }
+
+  setValue(){
+    this.signeupForm?.setValue({
+      gender:"male" ,
+      select:"pet" ,
+      QuestionAnswer:"rabert deniro" ,
+      UserData: {
+        username: 'mohamad' , 
+        email:'mohamad@gmail.com'
+      }
+
+    })
   }
 
 
