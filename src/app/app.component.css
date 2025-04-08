@@ -11,3 +11,7 @@
     background-color: #ededed;
     border: dashed #e0e0e0 2px;
   }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }

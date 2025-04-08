@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 
@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
+  @ViewChild('F') signeupProperty: NgForm | null = null
 
   constructor() {
 
@@ -23,8 +24,8 @@ export class AppComponent implements OnInit {
 
 
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmit() {
+    console.log(this.signeupProperty);
   }
 
 
