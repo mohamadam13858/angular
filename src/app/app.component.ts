@@ -14,6 +14,13 @@ export class AppComponent implements OnInit {
 
   @ViewChild('F') signeupProperty: NgForm | null = null
 
+
+  defaultquestion = "pet"
+
+  defaultEmail = "mh711748@gmail.com"
+
+  answer = ''
+
   constructor() {
 
   }
