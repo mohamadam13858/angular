@@ -52,7 +52,15 @@ export class AppComponent implements OnInit {
 
     })
   }
+  
+  patchValue(){
+    this.signeupForm?.form.patchValue({
+      UserData: {
+        username: 'ali' , 
+      }
 
+    })
+  }
 
 
 
