@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 
 
@@ -20,23 +20,16 @@ interface IUser {
 
 export class AppComponent implements OnInit {
 
-  @ViewChild('F') signeupForm: NgForm | null = null
 
-
-  defaultquestion = "pet"
-
-  defaultEmail = "mh711748@gmail.com"
-
-  answer = ''
 
   genders = [
     'male',
     'female'
   ]
 
-  user = {} as IUser;
+  signupForm:FormGroup;
 
-  isSubmit:boolean = false
+
 
 
   constructor() {
@@ -44,40 +37,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-  }
-
-
-
-  onSubmit() {
-    this.user!.username = this.signeupForm?.value.UserData.username;
-    this.user!.email = this.signeupForm?.value.UserData.email;
-    this.user!.QuestionAnswer = this.signeupForm?.value.QuestionAnswer;
-    this.user!.gender = this.signeupForm?.value.gender;  
-    this.isSubmit = true  
-  }
-
-  setValue() {
-    this.signeupForm?.setValue({
-      gender: "male",
-      select: "pet",
-      QuestionAnswer: "rabert deniro",
-      UserData: {
-        username: 'mohamad',
-        email: 'mohamad@gmail.com'
-      }
-
+    this.signupForm = new FormGroup({
+      username: new FormControl(null),
+      email: new FormControl(null),
+      gender: new FormControl('male')
     })
   }
 
-  patchValue() {
-    this.signeupForm?.form.patchValue({
-      UserData: {
-        username: 'ali',
-      }
 
-    })
-  }
+
+
 
 
 

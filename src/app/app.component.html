@@ -1,54 +1,26 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-12">
-            <form (ngSubmit)="onSubmit()" #F="ngForm">
-                <div id="user-data" ngModelGroup="UserData" #userinfo="ngModelGroup">
+            <form [formGroup]="signupForm">
+                <div class="form-group" >
                     <div class="form-group mt-3">
                         <label for="username">Username</label>
-                        <input type="text" id="username" class="form-control" ngModel name="username" required>
+                        <input type="text" id="username" class="form-control" formControlName="username">
                     </div>
                     <hr>
-                    <button class="btn btn-outline-dark" (click)="patchValue()">patchValue</button>
                     <div class="form-group mt-3">
                         <label for="email">E-Mail</label>
-                        <input type="email" id="email" class="form-control" [ngModel]="defaultEmail" name="email"
-                            required email #email="ngModel">
-                        <span class="text-danger" *ngIf="!email.valid && email.touched"> plese enter a valid
-                            email</span>
+                        <input type="email" id="email" class="form-control"name="email" formControlName="email">
                     </div>
                 </div>
-                <span class="text-info" *ngIf="!userinfo.valid && userinfo.touched">user info is invalid</span>
-                <div class="form-group mt-3">
-                    <label for="secret">Secret Questions</label>
-                    <select id="secret" class="form-control" [ngModel]="defaultquestion" name="select">
-                        <option value="pet">Your Favorite Singer?</option>
-                        <option value="teacher">Your Favorite Actor?</option>
-                    </select>
-                </div>
-                <div class="form-group mt-3">
-                    <textarea class="form-control" name="QuestionAnswer" [(ngModel)]="answer"></textarea>
-                </div>
-                <p>your Answer : {{answer}}</p>
                 <div class="radio" *ngFor="let gender of genders">
                     <label for="">
-                        <input type="radio" name="gender" ngModel [value]="gender" required>
+                        <input type="radio" name="gender" [value]="gender" formControlName="gender">
                         {{gender}}
                     </label>
                 </div>
-                <button class="btn btn-primary mt-3" type="submit" [disabled]="!F.valid">Submit</button>
-                <button (click)="setValue()" class="btn btn-outline-primary mt-3 ms-2" type="button">SetDefaultValue</button>
+                <button class="btn btn-primary mt-3" type="submit">Submit</button>
             </form>
-        </div>
-    </div>
-
-    <hr>
-    <div class="row" *ngIf="isSubmit">
-        <div class="col-xs-12">
-            <h3>your informatin</h3>
-            <p>Username: {{user.username}}</p>
-            <p>Email: {{user.email}}</p>
-            <p>QuestionAnswer: {{user.QuestionAnswer}}</p>
-            <p>gender: {{user.gender}}</p>
         </div>
     </div>
 </div>
