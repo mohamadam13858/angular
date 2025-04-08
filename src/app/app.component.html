@@ -9,7 +9,8 @@
                     </div>
                     <div class="form-group">
                         <label for="email">E-Mail</label>
-                        <input type="email" id="email" class="form-control" ngModel name="email" required email>
+                        <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+                        <span class="text-danger" *ngIf="!email.valid && email.touched"> plese enter a valid email</span>
                     </div>
                 </div>
                 <div class="form-group">
