@@ -1,8 +1,10 @@
 <div class="container">
+    <input type="text" [(ngModel)]="filterParam">
+    <hr>
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let product of products" [ngClass]="getStatusClasses(product)">
+                <li class="list-group-item" *ngFor="let product of products | filtered:filterParam" [ngClass]="getStatusClasses(product)">
                     <strong>{{ product.name | shorten:1 }}</strong> | {{ product.type | uppercase }} | {{
                     product.started | date:'fullDate' | uppercase }}
                     <span class="badge badge-secondary">
