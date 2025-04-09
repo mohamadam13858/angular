@@ -1,20 +1,15 @@
 <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <ul class="list-group">
-          <li
-            class="list-group-item"
-            *ngFor="let product of products"
-            [ngClass]="getStatusClasses(product)">
-           
-            <strong>{{ product.name }}</strong> | {{ product.type | uppercase  }} | {{ product.started | date:'shortDate' }}
-            <span
-            class="badge badge-secondary">
-            {{ product.status  }}
-          </span>
-          </li>
-        </ul>
-      </div>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let product of products" [ngClass]="getStatusClasses(product)">
+                    <strong>{{ product.name }}</strong> | {{ product.type | uppercase }} | {{ product.started |
+                    date:'fullDate' | uppercase }}
+                    <span class="badge badge-secondary">
+                        {{ product.status }}
+                    </span>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
-  
+</div>
