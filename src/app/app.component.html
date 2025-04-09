@@ -7,7 +7,8 @@
                         <label for="username">Username</label>
                         <input type="text" id="username" class="form-control" formControlName="username">
                     </div>
-                    <span *ngIf="!signupForm.get('userData.username')!.valid && signupForm.get('userData.username')!.touched"
+                    <span
+                        *ngIf="!signupForm.get('userData.username')!.valid && signupForm.get('userData.username')!.touched"
                         class="text-danger">Please enter a valid username</span>
                     <div class="form-group mt-3">
                         <label for="email">E-Mail</label>
@@ -22,6 +23,21 @@
                         {{gender}}
                     </label>
                 </div>
+
+
+
+
+                <div class="mt-3" formArrayName="family">
+                    <h4>your Family</h4>
+                    <button class="btn btn-outline-dark mt-2" (click)="onAddMember()">add family Member</button>
+
+                    <div class="form-group mt-2" *ngFor="let memberControl of FormArrey1; let i = index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+                </div>
+
+
+
                 <button class="btn btn-primary mt-3" type="submit" [disabled]="!signupForm.valid">Submit</button>
                 <br><br>
                 <span *ngIf="!signupForm.valid && signupForm.touched" class="text-danger mt-3">Please enter a
