@@ -39,6 +39,7 @@
 
 
                 <button class="btn btn-primary mt-3" type="submit" [disabled]="!signupForm.valid">Submit</button>
+                <button class="btn btn-danger mt-3" type="button" (click)="reset()">reset</button>
                 <br><br>
                 <span *ngIf="!signupForm.valid && signupForm.touched" class="text-danger mt-3">Please enter a
                     valid</span>

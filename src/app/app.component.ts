@@ -49,6 +49,31 @@ export class AppComponent implements OnInit {
       family: new FormArray([])
 
     })
+
+    this.signupForm.setValue({
+      userData: {
+        username: "mohamad",
+        email: "mh711748@gmail.com"
+      },
+      gender: "male",
+      family: []
+    })
+
+
+    this.signupForm.patchValue({
+      userData: {
+        email: "mh@gmail.com"
+      },
+    })
+
+
+
+
+
+
+
+
+
   }
 
 
@@ -58,7 +83,11 @@ export class AppComponent implements OnInit {
 
   }
 
-  get FormArrey1(){
+  reset(){
+    this.signupForm.reset()
+  }
+
+  get FormArrey1() {
     return (<FormArray>this.signupForm.get('family'))?.controls
   }
 
