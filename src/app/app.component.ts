@@ -21,85 +21,47 @@ interface IUser {
 export class AppComponent implements OnInit {
 
 
-
-  genders = [
-    'male',
-    'female'
-  ]
-
-  signupForm: FormGroup;
-
-
-
-
   constructor() {
 
   }
 
   ngOnInit(): void {
-    this.signupForm = new FormGroup({
-
-
-      userData: new FormGroup({
-        username: new FormControl(null, Validators.required),
-        email: new FormControl(null, [Validators.required, Validators.email]),
-      }),
-
-      gender: new FormControl('male'),
-      family: new FormArray([])
-
-    })
-
-    this.signupForm.setValue({
-      userData: {
-        username: "mohamad",
-        email: "mh711748@gmail.com"
-      },
-      gender: "male",
-      family: []
-    })
-
-
-    this.signupForm.patchValue({
-      userData: {
-        email: "mh@gmail.com"
-      },
-    })
-
-
-
-
-
-
-
-
 
   }
 
-
-
-  onSubmit() {
-    console.log(this.signupForm);
-
+  products = [
+    {
+      type: 'meduim',
+      name: 'Desktop Computer',
+      status: 'stable',
+      started: new Date(15, 1, 2017)
+    },
+    {
+      type: 'large',
+      name: 'Gaming Laptop',
+      status: 'stable',
+      started: new Date(15, 1, 2017)
+    },
+    {
+      type: 'small',
+      name: 'Ultrabook Multimedia',
+      status: 'offline',
+      started: new Date(15, 1, 2017)
+    },
+    {
+      type: 'small',
+      name: 'SSD Hard disk',
+      status: 'stable',
+      started: new Date(15, 1, 2017)
+    }
+  ];
+  getStatusClasses(server: { type: string, name: string, status: string, started: Date }) {
+    return {
+      'list-group-item-success': server.status === 'stable',
+      'list-group-item-warning': server.status === 'offline',
+      'list-group-item-danger': server.status === 'critical'
+    };
   }
-
-  reset(){
-    this.signupForm.reset()
-  }
-
-  get FormArrey1() {
-    return (<FormArray>this.signupForm.get('family'))?.controls
-  }
-
-
-  onAddMember() {
-
-    const control = new FormControl(null, Validators.required);
-
-    (<FormArray>this.signupForm.get('family')).push(control)
-
-  }
-
 
 
 
