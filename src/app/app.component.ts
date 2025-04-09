@@ -20,6 +20,7 @@ interface IUser {
 export class AppComponent implements OnInit {
 
   filterParam:string = ''
+  filterParamByTitle:string = ''
 
 
   constructor() {

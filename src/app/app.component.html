@@ -1,11 +1,14 @@
 <div class="container">
-    <input type="text" [(ngModel)]="filterParam">
+    <input type="text" [(ngModel)]="filterParam" placeholder="filter by status">
+    <hr>
+    <input type="text" [(ngModel)]="filterParamByTitle" placeholder="filter by title">
     <hr>
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let product of products | filtered:filterParam" [ngClass]="getStatusClasses(product)">
-                    <strong>{{ product.name | shorten:1 }}</strong> | {{ product.type | uppercase }} | {{
+                <li class="list-group-item" *ngFor="let product of products | filtered:filterParam: 'status'| filtered:filterParamByTitle:'name'"
+                    [ngClass]="getStatusClasses(product)">
+                    <strong>{{ product.name | shorten:20 }}</strong> | {{ product.type | uppercase }} | {{
                     product.started | date:'fullDate' | uppercase }}
                     <span class="badge badge-secondary">
                         {{ product.status }}

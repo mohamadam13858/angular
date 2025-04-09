@@ -6,15 +6,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilteredPipe implements PipeTransform {
 
-  transform(value: any, filteredString: string): any {
+  transform(value: any, ...args: string[]): any {
+    const filteredString = args[0]
+    const searchParam = args[1]
+    const resultArray = []
+
+
     if (value.length === 0 || filteredString === '') {
       return value
     }
 
-    const resultArray = []
 
     for (const item of value) {
-      if (item["status"] === filteredString) {
+      if (item[searchParam].toLowerCase().startsWith(filteredString)) {
         resultArray.push(item)
       }
     }
