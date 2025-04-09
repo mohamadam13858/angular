@@ -19,8 +19,8 @@ interface IUser {
 
 export class AppComponent implements OnInit {
 
-  filterParam:string = ''
-  filterParamByTitle:string = ''
+  filterParam: string = ''
+  filterParamByTitle: string = ''
 
 
   constructor() {
@@ -57,11 +57,12 @@ export class AppComponent implements OnInit {
       started: new Date(15, 1, 2017)
     }
   ];
-  getStatusClasses(server: { type: string, name: string, status: string, started: Date }) {
-    return {
-      'list-group-item-success': server.status === 'stable',
-      'list-group-item-warning': server.status === 'offline',
-      'list-group-item-danger': server.status === 'critical'
-    };
+  onAddProduct() {
+    this.products.push({
+      name: 'galaxy s23',
+      type: "moedum",
+      status: "jfjfj",
+      started: new Date()
+    })
   }
 }
