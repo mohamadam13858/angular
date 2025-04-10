@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './services/post.service';
 
- 
+
 export interface Posts {
   body: string,
   userId: number,
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   posts: Posts[];
 
 
-  constructor(private postServece : PostService) {
+  constructor(private postServece: PostService) {
 
   }
 
@@ -33,6 +33,17 @@ export class AppComponent implements OnInit {
     this.postServece.get().subscribe({
       next: (res) => {
         this.posts = res
+
+      }
+      ,
+      error: (err: any) => {
+        if (err.status === 404) {
+          alert('not found')
+
+        } else {
+          alert('خطا خطا خطا خطا خطا خطا خطا')
+          console.log(err);
+        }
 
       }
     })
@@ -52,6 +63,17 @@ export class AppComponent implements OnInit {
         this.posts = [post, ...this.posts]
 
       }
+      ,
+      error: (err: any) => {
+        if (err.status === 400) {
+          alert('no add post')
+
+        } else {
+          alert('خطا خطا خطا خطا خطا خطا خطا')
+          console.log(err);
+        }
+
+      }
     })
   }
 
@@ -65,7 +87,7 @@ export class AppComponent implements OnInit {
       userId: post.userId
     }
 
-this.postServece.update(post).subscribe({
+    this.postServece.update(post).subscribe({
       next: (res: any) => {
         const index = this.posts.findIndex(p => p.id === post.id)
 
@@ -76,6 +98,18 @@ this.postServece.update(post).subscribe({
         } else {
           console.log(res);
 
+        }
+
+      }
+      ,
+      error: (err: any) => {
+        alert('خطا خطا خطا خطا خطا خطا خطا')
+        if (err.status === 404) {
+          alert('not found')
+
+        } else {
+          alert('خطا خطا خطا خطا خطا خطا خطا')
+          console.log(err);
         }
 
       }
@@ -106,6 +140,16 @@ this.postServece.update(post).subscribe({
         let index = this.posts.indexOf(post);
 
         this.posts.splice(index, 1)
+
+      },
+      error: (err: any) => {
+        if (err.status === 404) {
+          alert('not found')
+
+        } else {
+          alert('خطا خطا خطا خطا خطا خطا خطا')
+          console.log(err);
+        }
 
       }
     })

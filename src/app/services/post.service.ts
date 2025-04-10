@@ -11,14 +11,13 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-
-
+  
   create(post: any) {
     return this.http.post(this.url, JSON.stringify(post))
   }
 
   get() {
-    return this.http.get<Array<Posts>>(this.url)
+    return this.http.get< Array<Posts> >(this.url)
   }
 
   update(post:any) {
