@@ -4,6 +4,7 @@ import { PostService } from './services/post.service';
 import { AppError } from './errors/app-error';
 import { NotFoundError } from './errors/not-found-error';
 import { BadInput } from './errors/badinput-error';
+import { AppErrorHandler } from './errors/appErrorHandler';
 
 
 export interface Posts {
@@ -37,8 +38,12 @@ export class AppComponent implements OnInit {
       next: (res) => {
         this.posts = res
 
+      },
+      error: (err:any) => {
+          if (err instanceof NotFoundError) {
+            alert('not found')
+          }else throw err
       }
-      ,
 
 
     })
@@ -63,8 +68,7 @@ export class AppComponent implements OnInit {
         if (err instanceof BadInput) {
           alert('no add post')
         } else {
-          alert('خطا خطا خطا خطا خطا خطا خطا')
-          console.log(err);
+          throw (err)
         }
 
       }
@@ -95,18 +99,6 @@ export class AppComponent implements OnInit {
         }
 
       }
-      ,
-      error: (err: any) => {
-        alert('خطا خطا خطا خطا خطا خطا خطا')
-        if (err.status === 404) {
-          alert('not found')
-
-        } else {
-          alert('خطا خطا خطا خطا خطا خطا خطا')
-          console.log(err);
-        }
-
-      }
 
     })
 
@@ -127,8 +119,7 @@ export class AppComponent implements OnInit {
           alert('not found')
 
         } else {
-          alert('خطا خطا خطا خطا خطا خطا خطا')
-          console.log(err);
+          throw (err)
         }
 
       }
