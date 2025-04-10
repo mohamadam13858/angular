@@ -12,7 +12,7 @@ import { NotFoundError } from '../errors/not-found-error';
 export class DataService {
   posts: Posts[];
 
-  constructor(private url : string , private http: HttpClient) { }
+  constructor(@inject('url') private url : string , private http: HttpClient) { }
 
 
   create(res: any) {
