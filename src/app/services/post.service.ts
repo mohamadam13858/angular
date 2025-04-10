@@ -18,18 +18,12 @@ export class PostService {
 
   create(post: any) {
     return this.http.post(this.url, JSON.stringify(post)).pipe(
-      catchError((err: any) => {
-        if (err.status === 400) {
-          return throwError(() => new BadInput(err))
-        } else {
-          return throwError(() => new AppError(err))
-        }
-      })
+      catchError(this.errorHandler)
     )
   }
 
   get() {
-    return this.http.get<Array<Posts>>(this.url)
+    return this.http.get<Array<Posts>>(this.url).pipe(catchError(this.errorHandler))
   }
 
   update(post: any) {
@@ -37,22 +31,33 @@ export class PostService {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-    })
+    }).pipe(
+      catchError(this.errorHandler)
+    )
   }
 
   delete(post: any) {
     return this.http.delete(this.url + '/' + post.id).pipe(
-      catchError((err: any) => {
-        if (err.status === 404) {
-          return throwError(() => new NotFoundError(err))
-        } else {
-          return throwError(() => {
-            new AppError(err)
-          })
-        }
-      })
+      catchError(this.errorHandler)
     )
   }
+
+
+
+
+
+  private errorHandler(err: any) {
+    if (err.status === 400) {
+      return throwError(() => new BadInput(err))
+    }
+    if (err.status === 404) {
+      return throwError(() => new NotFoundError(err))
+    }
+    return throwError(() => {
+      new AppError(err)
+    })
+  }
+
 
 
 
