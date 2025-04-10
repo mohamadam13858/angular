@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { PostService } from './services/post.service';
 
-
-interface Posts {
+ 
+export interface Posts {
   body: string,
   userId: number,
   title: string,
@@ -20,22 +21,21 @@ interface Posts {
 export class AppComponent implements OnInit {
 
 
-  url: string = 'https://jsonplaceholder.typicode.com/posts'
 
   posts: Posts[];
 
 
-  constructor(private http: HttpClient) {
-    http.get<Array<Posts>>(this.url).subscribe({
+  constructor(private postServece : PostService) {
+
+  }
+
+  ngOnInit(): void {
+    this.postServece.get().subscribe({
       next: (res) => {
         this.posts = res
 
       }
     })
-  }
-
-  ngOnInit(): void {
-
   }
 
 
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     let post: any = { title: input.value }
 
 
-    this.http.post(this.url, JSON.stringify(post)).subscribe({
+    this.postServece.create(post).subscribe({
       next: (res: any) => {
         post.id = res.id
         this.posts = [post, ...this.posts]
@@ -65,11 +65,7 @@ export class AppComponent implements OnInit {
       userId: post.userId
     }
 
-    this.http.put(this.url + '/' + post.id, JSON.stringify(post), {
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).subscribe({
+this.postServece.update(post).subscribe({
       next: (res: any) => {
         const index = this.posts.findIndex(p => p.id === post.id)
 
@@ -104,13 +100,13 @@ export class AppComponent implements OnInit {
 
 
   deletePost(post: any) {
-    this.http.delete(this.url+'/'+post.id).subscribe({
-      next:(res)=>{
-        
+    this.postServece.delete(post).subscribe({
+      next: (res) => {
+
         let index = this.posts.indexOf(post);
 
-        this.posts.splice(index,1)
-        
+        this.posts.splice(index, 1)
+
       }
     })
   }
