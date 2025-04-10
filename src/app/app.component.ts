@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
   url: string = 'https://jsonplaceholder.typicode.com/posts'
 
-
   posts: Posts[];
 
 
@@ -57,7 +56,54 @@ export class AppComponent implements OnInit {
   }
 
 
-  
+  updatePost(post: any) {
+
+    post = {
+      id: post.id,
+      title: 'mohamad',
+      body: 'test',
+      userId: post.userId
+    }
+
+    this.http.put(this.url+'/'+post.id, JSON.stringify(post), {
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).subscribe({
+      next: (res:any) => {
+      const index = this.posts.findIndex(p => p.id === post.id)
+
+      if (index !== -1 ) {
+        this.posts[index] = res
+        console.log(res);
+        
+      }else{
+        console.log(res);
+        
+      }
+
+      }
+
+    })
+
+    // this.http.patch(this.url + '/' + post.id, JSON.stringify({ title: 'reza' }), {
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    // }).subscribe({
+    //   next: (res) => {
+    //     console.log(res);
+
+    //   }
+    // })
+
+
+
+
+  }
+
+
+
 
 
 

@@ -2,7 +2,12 @@
     <div class="row">
         <input type="text" (keyup.enter)="createPost(title)" #title class="form-control mt-4 mb-4" placeholder="Enter new title ...">
         <ul class="list-group text-center">
-            <li class="list-group-item"*ngFor="let post of posts">{{post.title}}</li>
+            <li class="list-group-item border-4"*ngFor="let post of posts">
+                {{post.title}}
+                <div>
+                    <button (click)="updatePost(post)" class="btn btn-warning">Update</button>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
