@@ -47,9 +47,9 @@ export class AppComponent implements OnInit {
 
 
     this.http.post(this.url, JSON.stringify(post)).subscribe({
-      next: (res) => {
-        post.id = res
-        this.posts.splice(0, 0, post)
+      next: (res: any) => {
+        post.id = res.id
+        this.posts = [post, ...this.posts]
 
       }
     })
@@ -65,22 +65,22 @@ export class AppComponent implements OnInit {
       userId: post.userId
     }
 
-    this.http.put(this.url+'/'+post.id, JSON.stringify(post), {
+    this.http.put(this.url + '/' + post.id, JSON.stringify(post), {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     }).subscribe({
-      next: (res:any) => {
-      const index = this.posts.findIndex(p => p.id === post.id)
+      next: (res: any) => {
+        const index = this.posts.findIndex(p => p.id === post.id)
 
-      if (index !== -1 ) {
-        this.posts[index] = res
-        console.log(res);
-        
-      }else{
-        console.log(res);
-        
-      }
+        if (index !== -1) {
+          this.posts[index] = res
+          console.log(res);
+
+        } else {
+          console.log(res);
+
+        }
 
       }
 
@@ -100,6 +100,19 @@ export class AppComponent implements OnInit {
 
 
 
+  }
+
+
+  deletePost(post: any) {
+    this.http.delete(this.url+'/'+post.id).subscribe({
+      next:(res)=>{
+        
+        let index = this.posts.indexOf(post);
+
+        this.posts.splice(index,1)
+        
+      }
+    })
   }
 
 
