@@ -20,12 +20,14 @@ interface Posts {
 export class AppComponent implements OnInit {
 
 
+  url: string = 'https://jsonplaceholder.typicode.com/posts'
+
 
   posts: Posts[];
 
 
   constructor(private http: HttpClient) {
-    http.get<Array<Posts>>('https://jsonplaceholder.typicode.com/posts').subscribe({
+    http.get<Array<Posts>>(this.url).subscribe({
       next: (res) => {
         this.posts = res
 
@@ -36,4 +38,26 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
+
+
+  createPost(input: HTMLInputElement) {
+
+    let post: any = { title: input.value }
+
+
+    this.http.post(this.url, JSON.stringify(post)).subscribe({
+      next: (res) => {
+        post.id = res
+        this.posts.splice(0, 0, post)
+
+      }
+    })
+  }
+
+
+
+
+
 }
