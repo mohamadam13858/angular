@@ -1,23 +1,7 @@
-<div class="container">
-    <h1>{{appStatus| async }}</h1>
-    <br>
-    <input type="text" [(ngModel)]="filterParam" placeholder="filter by status">
-    <hr>
-    <input type="text" [(ngModel)]="filterParamByTitle" placeholder="filter by title">
-    <hr>
-    <button class="btn btn-info" (click)="onAddProduct()">add Product</button>
-    <div class="row mt-3">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <ul class="list-group">
-                <li class="list-group-item"
-                    *ngFor="let product of products | filtered:filterParam: 'status'| filtered:filterParamByTitle:'name'">
-                    <strong>{{ product.name | shorten:20 }}</strong> | {{ product.type | uppercase }} | {{
-                    product.started | date:'fullDate' | uppercase }}
-                    <span class="badge badge-secondary">
-                        {{ product.status }}
-                    </span>
-                </li>
-            </ul>
-        </div>
+<div class="containar">
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item"*ngFor="let post of posts">{{post.title}}</li>
+        </ul>
     </div>
 </div>

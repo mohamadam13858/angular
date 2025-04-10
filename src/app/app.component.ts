@@ -1,12 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 
-
-interface IUser {
-  username: string,
-  email: string,
-  QuestionAnswer: string,
-  gender: "male" | "female"
+interface Posts {
+  body: string,
+  userId: number,
+  title: string,
+  id: number
 }
 
 
@@ -19,56 +19,21 @@ interface IUser {
 
 export class AppComponent implements OnInit {
 
-  appStatus = new Promise((res, rej) => {
-    setTimeout(() => {
-      res('online')
-    }, 2000);
-  })
-
-  filterParam: string = ''
-  filterParamByTitle: string = ''
 
 
-  constructor() {
+  posts: Posts[];
 
+
+  constructor(private http: HttpClient) {
+    http.get<Array<Posts>>('https://jsonplaceholder.typicode.com/posts').subscribe({
+      next: (res) => {
+        this.posts = res
+
+      }
+    })
   }
 
   ngOnInit(): void {
 
-  }
-
-  products = [
-    {
-      type: 'meduim',
-      name: 'Desktop Computer',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      type: 'large',
-      name: 'Gaming Laptop',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      type: 'small',
-      name: 'Ultrabook Multimedia',
-      status: 'offline',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      type: 'small',
-      name: 'SSD Hard disk',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    }
-  ];
-  onAddProduct() {
-    this.products.push({
-      name: 'galaxy s23',
-      type: "moedum",
-      status: "jfjfj",
-      started: new Date()
-    })
   }
 }
