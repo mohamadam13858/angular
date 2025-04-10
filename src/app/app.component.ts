@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './services/post.service';
+import { AppError } from './errors/app-error';
+import { NotFoundError } from './errors/not-found-error';
 
 
 export interface Posts {
@@ -36,16 +38,8 @@ export class AppComponent implements OnInit {
 
       }
       ,
-      error: (err: any) => {
-        if (err.status === 404) {
-          alert('not found')
 
-        } else {
-          alert('خطا خطا خطا خطا خطا خطا خطا')
-          console.log(err);
-        }
-
-      }
+      
     })
   }
 
@@ -116,20 +110,6 @@ export class AppComponent implements OnInit {
 
     })
 
-    // this.http.patch(this.url + '/' + post.id, JSON.stringify({ title: 'reza' }), {
-    //   headers: {
-    //     'Content-type': 'application/json; charset=UTF-8',
-    //   },
-    // }).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-
-    //   }
-    // })
-
-
-
-
   }
 
 
@@ -142,8 +122,8 @@ export class AppComponent implements OnInit {
         this.posts.splice(index, 1)
 
       },
-      error: (err: any) => {
-        if (err.status === 404) {
+      error: (err: AppError) => {
+        if (err instanceof NotFoundError) {
           alert('not found')
 
         } else {
