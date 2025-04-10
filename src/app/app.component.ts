@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from './services/post.service';
 import { AppError } from './errors/app-error';
 import { NotFoundError } from './errors/not-found-error';
+import { BadInput } from './errors/badinput-error';
 
 
 export interface Posts {
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit {
       }
       ,
 
-      
+
     })
   }
 
@@ -59,9 +60,8 @@ export class AppComponent implements OnInit {
       }
       ,
       error: (err: any) => {
-        if (err.status === 400) {
+        if (err instanceof BadInput) {
           alert('no add post')
-
         } else {
           alert('خطا خطا خطا خطا خطا خطا خطا')
           console.log(err);
