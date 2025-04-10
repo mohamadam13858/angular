@@ -35,14 +35,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.postServece.get().subscribe({
-      next: (res) => {
-        this.posts = res
-
-      },
-      error: (err:any) => {
-          if (err instanceof NotFoundError) {
-            alert('not found')
-          }else throw err
+      next: data => this.posts = data,
+      error: (err: any) => {
+        if (err instanceof NotFoundError) {
+          alert('not found')
+        } else throw err
       }
 
 

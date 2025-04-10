@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Posts } from '../app.component';
 import { HttpClient } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 import { AppError } from '../errors/app-error';
 import { BadInput } from '../errors/badinput-error';
 import { NotFoundError } from '../errors/not-found-error';
@@ -12,7 +12,7 @@ import { NotFoundError } from '../errors/not-found-error';
 export class DataService {
   posts: Posts[];
 
-  constructor(@inject('url') private url : string , private http: HttpClient) { }
+  constructor( private url : string , private http: HttpClient) { }
 
 
   create(res: any) {
@@ -22,7 +22,9 @@ export class DataService {
   }
 
   get() {
-    return this.http.get<Array<Posts>>(this.url).pipe(catchError(this.errorHandler))
+    return this.http.get<Array<Posts>>(this.url).pipe(
+      map((res) => res),
+      catchError(this.errorHandler))
   }
 
   update(res: any) {
