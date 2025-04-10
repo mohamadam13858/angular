@@ -19,6 +19,12 @@ interface IUser {
 
 export class AppComponent implements OnInit {
 
+  appStatus = new Promise((res, rej) => {
+    setTimeout(() => {
+      res('online')
+    }, 2000);
+  })
+
   filterParam: string = ''
   filterParamByTitle: string = ''
 
